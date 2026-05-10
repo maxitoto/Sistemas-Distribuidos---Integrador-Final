@@ -33,7 +33,8 @@ def obternerLibroPorId(id_item):
  
 @app.route('/libros', methods=['GET'])
 def listarLibrosPorAutor():
-    id_autor = request.args.get('autor')
+    id_autor = int(request.args.get('autor'))
+    
     with open(PATH, 'r') as f:
         portalocker.lock(f, portalocker.LOCK_SH)
         datos = json.load(f)
