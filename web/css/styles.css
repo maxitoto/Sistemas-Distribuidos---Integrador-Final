@@ -1,64 +1,80 @@
 :root {
     --primary: #2c3e50;
-    --secondary: #3498db;
-    --accent: #e74c3c;
-    --bg: #f4f7f6;
-    --text: #333;
+    --secondary: #34495e;
+    --accent: #3498db;
+    --success: #27ae60;
+    --text: #ecf0f1;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
+    background-color: #f4f4f4;
     margin: 0;
-    line-height: 1.6;
+    color: #333;
 }
 
 header {
-    background: var(--primary);
-    color: white;
-    padding: 2rem;
+    background-color: var(--primary);
+    color: var(--text);
+    padding: 1rem;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 2rem auto;
     padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
 }
 
 .card {
     background: white;
+    padding: 1.5rem;
     border-radius: 8px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-h2 {
-    color: var(--secondary);
-    border-bottom: 2px solid var(--secondary);
-    padding-bottom: 0.5rem;
+.card h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 5px; }
+
+.full-width { grid-column: 1 / -1; }
+
+/* estilar la consola,  */
+.test-panel { display: flex; flex-direction: column; gap: 10px; }
+.input-group { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+
+input, select, textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .btn {
-    display: inline-block;
-    background: var(--secondary);
+    background-color: var(--accent);
     color: white;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover { background-color: var(--secondary); }
+.btn-post { background-color: var(--success); }
+
+#response-console {
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: 1rem;
     border-radius: 5px;
-    transition: background 0.3s ease;
+    height: 300px;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    border: 3px solid var(--secondary);
 }
 
-.btn:hover {
-    background: #2980b9;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    color: #666;
-}
+footer { text-align: center; padding: 2rem; color: #777; }

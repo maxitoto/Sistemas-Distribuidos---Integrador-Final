@@ -4,45 +4,76 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Editorial Distribuidos Sur</title>
+        <title> Arquitectura de servicios distribuidos </title>
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
     <body>
 
-    <header>
-        <h1>Editorial Distribuidos Sur</h1>
-        <p>Trabajo Integrador - UNTDF</p>
-    </header>
+        <header>
+            <h1>Arquitectura de servicios distribuidos</h1>
+            <p>Integrador FINAL!! - UNTDF</p>
+        </header>
 
-    <div class="container">
-        <div class="card">
-            <h2>Bienvenido al Portal</h2>
-            <p>Este sitio es servido de forma distribuida a través de <strong>sdist1</strong> y <strong>sdist2</strong>, con almacenamiento centralizado en <strong>sdist3</strong>.</p>
-            <a href="#" class="btn">Ver Catálogo</a>
+        <div class="container">
+            
+            <div class="card">
+                <h2>Arquitectura</h2>
+                <p>Servido por <strong>dist0</strong> (Nginx HTTPS) -> <strong>dist1/dist2</strong> (Flask) -> <strong>sdist3</strong> (NFS).</p>
+                <ul>
+                    <li><strong>SSL/TLS:</strong> Activo (Puerto 443)</li>
+                    <li><strong>Balanceo:</strong> Round Robin 1:2 (dist1/dist2)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Estado del Almacenamiento</h2>
+                <ul>
+                    <li>Persistencia: <code>/mnt/nfs/data/*.json</code></li>
+                    <li>Consistencia: Portalocker (File Locking)</li>
+                </ul>
+            </div>
+
+            <div class="card full-width">
+                <h2>Consola de Pruebas de Microservicios</h2>
+                
+                <div class="test-panel">
+                    <h3>1. Microservicio Editoriales (8081)</h3>
+                    <div class="input-group">
+                        <input type="number" id="ed-id" placeholder="ID Editorial" value="1">
+                        <button class="btn" onclick="test('GET', '/editorial/' + document.getElementById('ed-id').value)">GET Editorial</button>
+                        <button class="btn" onclick="test('GET', '/editorial/' + document.getElementById('ed-id').value + '/dashboard')">GET Dashboard</button>
+                        <button class="btn btn-post" onclick="test('POST', '/editorial', {nombre: 'Nueva Editorial', pais: 'Argentina'})">POST Editorial</button>
+                    </div>
+
+                    <h3>2. Microservicio Autores (8082)</h3>
+                    <div class="input-group">
+                        <input type="number" id="au-id" placeholder="ID Autor" value="1">
+                        <button class="btn" onclick="test('GET', '/autor/' + document.getElementById('au-id').value)">GET Autor</button>
+                        <button class="btn" onclick="test('GET', '/autores?editorial=' + document.getElementById('ed-id').value)">GET Autores de Ed.</button>
+                        <button class="btn btn-post" onclick="test('POST', '/autor', {nombre: 'Borges', editorial_id: 1})">POST Autor</button>
+                    </div>
+
+                    <h3>3. Microservicio Libros (8083)</h3>
+                    <div class="input-group">
+                        <input type="number" id="li-id" placeholder="ID Libro" value="1">
+                        <button class="btn" onclick="test('GET', '/libro/' + document.getElementById('li-id').value)">GET Libro</button>
+                        <button class="btn" onclick="test('GET', '/libros?autor=' + document.getElementById('au-id').value)">GET Libros de Autor</button>
+                        <button class="btn btn-post" onclick="test('POST', '/libro', {titulo: 'Ficciones', anio: 1944, autor_id: 1})">POST Libro</button>
+                    </div>
+                </div>
+
+                <h4>Salida del Servidor (JSON):</h4>
+                <div id="response-console">Esperando petición...</div>
+            </div>
+
         </div>
 
-        <div class="card">
-            <h2>Estado del Sistema</h2>
-            <ul>
-                <li>Almacenamiento: NFS (sdist3)</li>
-                <li>Balanceador: sdist0 (Gateway)</li>
-                <li>Persistencia: JSON Files</li>
-            </ul>
-        </div>
+        <footer>
+            <p>&copy; 2026 Silvana Blanco - Sistemas Distribuidos UNTDF</p>
+        </footer>
 
-        <div>
-            <h2>Redes Sociales</h2>
-            <ul>
-                <li><a href="https://github.com/maxitoto" target="_blank">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/maxitoto/" target="_blank">LinkedIn</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Maxitoto - Sistemas Distribuidos</p>
-    </footer>
+        </script src="js/index.js">
 
     </body>
 </html>
