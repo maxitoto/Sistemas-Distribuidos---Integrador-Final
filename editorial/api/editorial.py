@@ -12,9 +12,13 @@ app = Flask(__name__) #crea el app o servidor (es una variale global)
 CORS(app) #permite CORS en la red
 
 #nos traemos la variables de entorno
-PATH = os.getenv('PATH_EDITORIAL')
-PORT = os.getenv('PORT_EDITORIAL')
-IP = os.getenv('IP')
+PATH = os.getenv('DATA_PATH_EDITORIAL', "/app/data/editorial.json")
+PORT = int(os.getenv('PORT_EDITORIAL', 8081))
+IP = "0.0.0.0"
+
+#definimos la url de los otros servicios que este servicio va a consultar
+URL_AUTOR = os.getenv('AUTOR_API_URL')
+URL_LIBRO = os.getenv('LIBRO_API_URL')
 
 
 #esta etiqueta indica la ruta del serivico y su metodo
@@ -72,19 +76,15 @@ def datosCompletoPorEditorial(id_item):
 
     payload = []
 
-    PORT_AUTOR = os.getenv('PORT_AUTOR')
-    HOST_AUTOR = os.getenv('HOST_AUTOR')
     try:
-        respuesta_autores = requests.get(f'http://{HOST_AUTOR}:{PORT_AUTOR}/autores?editorial={id_item}').json()
+        respuesta_autores = requests.get(f'http://{URL_AUTOR}/autores?editorial={id_item}').json()
         lista_autores = respuesta_autores.get('item', [])
     except Exception as e:
         return jsonify({"status": "error", "message": str(e), "service": "autor"}), 503
 
-    PORT_LIBRO = os.getenv('PORT_LIBRO')
-    HOST_LIBRO = os.getenv('HOST_LIBRO')
     try:
         for autor in lista_autores:
-            respuesta_libros = requests.get(f'http://{HOST_LIBRO}:{PORT_LIBRO}/libros?autor={autor["id"]}').json()
+            respuesta_libros = requests.get(f'http://{URL_LIBRO}/libros?autor={autor["id"]}').json()
             lista_libros = respuesta_libros.get('item', [])
             payload.append({"autor": autor, "libros": lista_libros})    
     except Exception as e:

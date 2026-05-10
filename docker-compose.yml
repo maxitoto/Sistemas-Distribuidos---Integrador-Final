@@ -1,27 +1,52 @@
+# Definición de variables comunes (Mapa de la red interna)
+x-common-config: &common-env
+ 
+  AUTOR_API_URL: "http://autor-api:8082"
+  DATA_PATH_AUTOR: "/app/data/autor.json"
+
+
+  EDITORIAL_API_URL: "http://editorial-api:8081"
+  DATA_PATH_EDITORIAL: "/app/data/editorial.json"
+
+  LIBRO_API_URL: "http://libro-api:8083"
+  DATA_PATH_LIBRO: "/app/data/libro.json"
+
 services:
+  # --- MICROSERVICIO DE EDITORIAL ---
   editorial-api:
     build: .
     command: python editorial/api/editorial.py
-    env_file: .env
+    environment:
+      <<: *common-env
+      PORT_EDITORIAL: 8081
     volumes:
-      - "${DATA_PATH_HOST}:/app/data"
+      - "/var/www/html/project/data:/app/data" 
     ports:
-      - "${PORT_EDITORIAL}:${PORT_EDITORIAL}"
+      - "8081:8081"
+    restart: always
 
+  # --- MICROSERVICIO DE AUTOR ---
   autor-api:
     build: .
     command: python autor/api/autor.py
-    env_file: .env
+    environment:
+      <<: *common-env
+      PORT_AUTOR: 8082
     volumes:
-      - "${DATA_PATH_HOST}:/app/data"
+      - "/var/www/html/project/data:/app/data"
     ports:
-      - "${PORT_AUTOR}:${PORT_AUTOR}"
+      - "8082:8082"
+    restart: always
 
+  # --- MICROSERVICIO DE LIBRO ---
   libro-api:
     build: .
     command: python libro/api/libros.py
-    env_file: .env
+    environment:
+      <<: *common-env
+      PORT_LIBRO: 8083
     volumes:
-      - "${DATA_PATH_HOST}:/app/data"
+      - "/var/www/html/project/data:/app/data"
     ports:
-      - "${PORT_LIBRO}:${PORT_LIBRO}"
+      - "8083:8083"
+    restart: always
