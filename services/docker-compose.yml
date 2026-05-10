@@ -1,0 +1,27 @@
+services:
+  editorial-api:
+    build: .
+    command: python editorial/api/editorial.py
+    env_file: .env
+    volumes:
+      - "${DATA_PATH_HOST}:/app/data"
+    ports:
+      - "${PORT_EDITORIAL}:${PORT_EDITORIAL}"
+
+  autor-api:
+    build: .
+    command: python autor/api/autor.py
+    env_file: .env
+    volumes:
+      - "${DATA_PATH_HOST}:/app/data"
+    ports:
+      - "${PORT_AUTOR}:${PORT_AUTOR}"
+
+  libro-api:
+    build: .
+    command: python libro/api/libros.py
+    env_file: .env
+    volumes:
+      - "${DATA_PATH_HOST}:/app/data"
+    ports:
+      - "${PORT_LIBRO}:${PORT_LIBRO}"
