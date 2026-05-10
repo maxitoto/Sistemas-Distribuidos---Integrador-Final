@@ -12,7 +12,6 @@ x-common-config: &common-env
   DATA_PATH_LIBRO: "/app/data/libro.json"
 
 services:
-  # --- MICROSERVICIO DE EDITORIAL ---
   editorial-api:
     build: .
     command: python editorial/api/editorial.py
@@ -25,7 +24,6 @@ services:
       - "8081:8081"
     restart: always
 
-  # --- MICROSERVICIO DE AUTOR ---
   autor-api:
     build: .
     command: python autor/api/autor.py
@@ -37,8 +35,7 @@ services:
     ports:
       - "8082:8082"
     restart: always
-
-  # --- MICROSERVICIO DE LIBRO ---
+    
   libro-api:
     build: .
     command: python libro/api/libros.py
