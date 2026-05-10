@@ -11,6 +11,8 @@ x-common-config: &common-env
   LIBRO_API_URL: "http://libro-api:8083"
   DATA_PATH_LIBRO: "/app/data/libro.json"
 
+  PYTHONPATH: "/app"
+
 services:
   editorial-api:
     build: .
