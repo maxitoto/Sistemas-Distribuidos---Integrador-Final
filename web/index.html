@@ -1,182 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Control - Distribuidos Sur</title>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #3498db;
-            --success: #27ae60;
-            --text: #ecf0f1;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Arquitectura de servicios distribuidos </title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            color: #333;
-        }
+    <body>
 
-        header {
-            background-color: var(--primary);
-            color: var(--text);
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+        <header>
+            <h1>Arquitectura de servicios distribuidos</h1>
+            <p>Integrador Final!</p>
+        </header>
 
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .card h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 5px; }
-
-        .full-width { grid-column: 1 / -1; }
-
-        /* Estilos de la Consola de Pruebas */
-        .test-panel { display: flex; flex-direction: column; gap: 10px; }
-        .input-group { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
-        
-        input, select, textarea {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .btn {
-            background-color: var(--accent);
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-
-        .btn:hover { background-color: var(--secondary); }
-        .btn-post { background-color: var(--success); }
-
-        #response-console {
-            background-color: #272822;
-            color: #f8f8f2;
-            padding: 1rem;
-            border-radius: 5px;
-            height: 300px;
-            overflow-y: auto;
-            font-family: 'Courier New', Courier, monospace;
-            white-space: pre-wrap;
-            border: 3px solid var(--secondary);
-        }
-
-        footer { text-align: center; padding: 2rem; color: #777; }
-    </style>
-</head>
-
-<body>
-
-    <header>
-        <h1>Editorial Distribuidos Sur</h1>
-        <p>Panel de Pruebas Integrador - UNTDF</p>
-    </header>
-
-    <div class="container">
-        
-        <div class="card">
-            <h2>Arquitectura</h2>
-            <p>Servido por <strong>dist0</strong> (Nginx HTTPS) -> <strong>dist1/dist2</strong> (Flask) -> <strong>sdist3</strong> (NFS).</p>
-            <ul>
-                <li><strong>SSL/TLS:</strong> Activo (Puerto 443)</li>
-                <li><strong>Balanceo:</strong> Round Robin 1:2 (dist1/dist2)</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>Estado del Almacenamiento</h2>
-            <ul>
-                <li>Persistencia: <code>/mnt/nfs/data/*.json</code></li>
-                <li>Consistencia: Portalocker (File Locking)</li>
-            </ul>
-        </div>
-
-        <div class="card full-width">
-            <h2>Consola de Pruebas de Microservicios</h2>
+        <div class="container">
             
-            <div class="test-panel">
-                <h3>1. Microservicio Editoriales (8081)</h3>
-                <div class="input-group">
-                    <input type="number" id="ed-id" placeholder="ID Editorial" value="1">
-                    <button class="btn" onclick="test('GET', '/editorial/' + document.getElementById('ed-id').value)">GET Editorial</button>
-                    <button class="btn" onclick="test('GET', '/editorial/' + document.getElementById('ed-id').value + '/dashboard')">GET Dashboard</button>
-                    <button class="btn btn-post" onclick="test('POST', '/editorial', {nombre: 'Nueva Editorial', pais: 'Argentina'})">POST Editorial</button>
-                </div>
-
-                <h3>2. Microservicio Autores (8082)</h3>
-                <div class="input-group">
-                    <input type="number" id="au-id" placeholder="ID Autor" value="1">
-                    <button class="btn" onclick="test('GET', '/autor/' + document.getElementById('au-id').value)">GET Autor</button>
-                    <button class="btn" onclick="test('GET', '/autores?editorial=' + document.getElementById('ed-id').value)">GET Autores de Ed.</button>
-                    <button class="btn btn-post" onclick="test('POST', '/autor', {nombre: 'Borges', editorial_id: 1})">POST Autor</button>
-                </div>
-
-                <h3>3. Microservicio Libros (8083)</h3>
-                <div class="input-group">
-                    <input type="number" id="li-id" placeholder="ID Libro" value="1">
-                    <button class="btn" onclick="test('GET', '/libro/' + document.getElementById('li-id').value)">GET Libro</button>
-                    <button class="btn" onclick="test('GET', '/libros?autor=' + document.getElementById('au-id').value)">GET Libros de Autor</button>
-                    <button class="btn btn-post" onclick="test('POST', '/libro', {titulo: 'Ficciones', anio: 1944, autor_id: 1})">POST Libro</button>
-                </div>
+            <div class="card">
+                <h2>Arquitectura</h2>
+                <p>Servido por <strong>dist0</strong> (Nginx HTTPS) <-> (Flask HTTP)<strong>dist1/dist2</strong>  <-> <strong>sdist3</strong> (NFS).</p>
+                <ul>
+                    <li><strong>Resiliencia:</strong> <strong>dist1/dist2</strong></li>
+                    <li><strong>SSL/TLS:</strong> Activo (Puerto 443)</li>
+                    <li><strong>Balanceo:</strong> Round Robin 1:2 (dist1/dist2)</li>
+                    <li><strong>Proxy Inverso:</strong> Activo (Puerto 80)</li>
+                    <li><strong>Servidor Web:</strong> <strong>dist0</strong> <- <strong>dist3</strong> (NFS scope web)</li>
+                    <li><strong>Microservicios:</strong> 3 (Editoriales, Autores, Libros)</li>
+                    <li><strong>Almacenamiento:</strong> 1 (NFS scope database)</li>
+                </ul>
             </div>
 
-            <h4>Salida del Servidor (JSON):</h4>
-            <div id="response-console">Esperando petición...</div>
+            <div class="card">
+                <h2>Repositorio</h2>
+                <h3>Orden</h3>
+                <p>Rama NFS contiene la web estatica y los datos</p>
+                <p>Rama services contiene los serivicos dockerizados</p>
+                <p>Rama gateway contiene la configuración de nginx y un generador de certificados</p>
+            </div>
+
+            <div class="card full-width">
+                <h2>Consola de Pruebas de Microservicios</h2>
+                
+                <div class="test-panel">
+                    <h3>1. Microservicio Editoriales (Internamente 8081)</h3>
+                    <div class="input-group">
+                        <input type="number" id="ed-id" placeholder="ID Editorial" value="1">
+                        <button class="btn" onclick="test('GET', '/editorial/' + document.getElementById('ed-id').value)">GET Editorial</button>
+                        <button class="btn" onclick="test('GET', '/editorial/' + document.getElementById('ed-id').value + '/dashboard')">GET Dashboard</button>
+                        <button class="btn btn-post" onclick="test('POST', '/editorial', {nombre: 'Nueva Editorial', pais: 'Argentina'})">POST Editorial</button>
+                    </div>
+
+                    <h3>2. Microservicio Autores (Internamente 8082)</h3>
+                    <div class="input-group">
+                        <input type="number" id="au-id" placeholder="ID Autor" value="1">
+                        <button class="btn" onclick="test('GET', '/autor/' + document.getElementById('au-id').value)">GET Autor</button>
+                        <button class="btn" onclick="test('GET', '/autores?editorial=' + document.getElementById('ed-id').value)">GET Autores de Ed.</button>
+                        <button class="btn btn-post" onclick="test('POST', '/autor', {nombre: 'Borges', editorial_id: 1})">POST Autor</button>
+                    </div>
+
+                    <h3>3. Microservicio Libros (Internamente 8083)</h3>
+                    <div class="input-group">
+                        <input type="number" id="li-id" placeholder="ID Libro" value="1">
+                        <button class="btn" onclick="test('GET', '/libro/' + document.getElementById('li-id').value)">GET Libro</button>
+                        <button class="btn" onclick="test('GET', '/libros?autor=' + document.getElementById('au-id').value)">GET Libros de Autor</button>
+                        <button class="btn btn-post" onclick="test('POST', '/libro', {titulo: 'Ficciones', anio: 1944, autor_id: 1})">POST Libro</button>
+                    </div>
+                </div>
+
+                <h4>Salida del Servidor (JSON):</h4>
+                <div id="response-console">Esperando petición...</div>
+            </div>
+
         </div>
 
-    </div>
+        <footer>
+            <p>&copy; 2026 Maxitoto - Sistemas Distribuidos UNTDF</p>
+            <a href="https://github.com/maxitoto">GitHub</a>
+        </footer>
 
-    <footer>
-        <p>&copy; 2026 Silvana Blanco - Sistemas Distribuidos UNTDF</p>
-    </footer>
+        <script src="js/index.js"></script>
 
-    <script>
-        async function test(method, path, body = null) {
-            const consoleBox = document.getElementById('response-console');
-            consoleBox.innerHTML = "Enviando petición a " + path + "...";
-
-            const options = {
-                method: method,
-                headers: { 'Content-Type': 'application/json' }
-            };
-            if (body) options.body = JSON.stringify(body);
-
-            try {
-                // Usamos rutas relativas para que Nginx rutee según la config
-                const response = await fetch(path, options);
-                const data = await response.json();
-                
-                consoleBox.innerHTML = `// Status: ${response.status} ${response.statusText}\n` + 
-                                     JSON.stringify(data, null, 4);
-            } catch (error) {
-                consoleBox.innerHTML = "// ERROR DE CONEXIÓN\n" + error;
-            }
-        }
-    </script>
-
-</body>
+    </body>
 </html>
