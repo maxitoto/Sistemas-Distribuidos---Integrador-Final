@@ -40,7 +40,7 @@ services:
     
   libro-api:
     build: .
-    command: python libro/api/libros.py
+    command: python libro/api/libro.py
     environment:
       <<: *common-env
       PORT_LIBRO: 8083
