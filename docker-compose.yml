@@ -21,7 +21,7 @@ services:
       <<: *common-env
       PORT_EDITORIAL: 8081
     volumes:
-      - "/var/www/html/database:/app/data" 
+      - "/var/www/html:/app/data" 
     ports:
       - "8081:8081"
     restart: always
@@ -33,7 +33,7 @@ services:
       <<: *common-env
       PORT_AUTOR: 8082
     volumes:
-      - "/var/www/html/database:/app/data"
+      - "/var/www/html:/app/data"
     ports:
       - "8082:8082"
     restart: always
@@ -45,7 +45,7 @@ services:
       <<: *common-env
       PORT_LIBRO: 8083
     volumes:
-      - "/var/www/html/database:/app/data"
+      - "/var/www/html:/app/data"
     ports:
       - "8083:8083"
     restart: always
