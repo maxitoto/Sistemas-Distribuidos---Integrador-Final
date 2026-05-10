@@ -3,7 +3,7 @@ import json
 import os
 
 # 1. Definir la ruta física en el Host
-ruta_base = "../data"
+ruta_base = "../"
 
 # Aseguramos que la carpeta exista
 os.makedirs(ruta_base, exist_ok=True)
