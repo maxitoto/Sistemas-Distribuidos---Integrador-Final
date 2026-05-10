@@ -31,6 +31,14 @@ def obternerLibroPorId(id_item):
         
         return jsonify(resultado), 200
  
+@app.route('/libros?autor=<int:id_item>', methods=['GET'])
+def listarLibrosPorAutor(id_item):
+    with open(PATH, 'r') as f:
+        portalocker.lock(f, portalocker.LOCK_SH)
+        datos = json.load(f)
+        portalocker.unlock(f)
+        return jsonify([item for item in datos if item.get('autor_id') == id_item]), 200
+
 
 @app.route('/libro', methods=['POST'])
 def crearLibroDeUnAutor():
