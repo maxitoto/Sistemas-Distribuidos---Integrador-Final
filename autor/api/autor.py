@@ -29,7 +29,7 @@ def obtenerAutorPorId(id_item):
 
 @app.route('/autores', methods=['GET'])
 def listarAutoresPorEditorial():
-    id_editorial = request.args.get('editorial')
+    id_editorial = int(request.args.get('editorial'))
     with open(PATH, 'r') as f:
         portalocker.lock(f, portalocker.LOCK_SH)
         datos = json.load(f)
