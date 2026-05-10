@@ -27,13 +27,14 @@ def obtenerAutorPorId(id_item):
         
         return jsonify(resultado), 200
 
-@app.route('/autores?autor=<int:id_item>', methods=['GET'])
-def listarAutoresPorEditorial(id_item):
+@app.route('/autores', methods=['GET'])
+def listarAutoresPorEditorial():
+    id_editorial = request.args.get('editorial')
     with open(PATH, 'r') as f:
         portalocker.lock(f, portalocker.LOCK_SH)
         datos = json.load(f)
         portalocker.unlock(f)
-        return jsonify([item for item in datos if item.get('editorial_id') == id_item]), 200
+        return jsonify([item for item in datos if item.get('editorial_id') == id_editorial]), 200
 
 @app.route('/autor', methods=['POST'])
 def crearAutor():
