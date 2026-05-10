@@ -1,8 +1,22 @@
+upstream upstream_editorial {
+    server 10.0.2.20:8081;
+    server 10.0.2.10:8081;
+}
+
+upstream upstream_autor {
+    server 10.0.2.20:8082;
+    server 10.0.2.10:8082;
+}
+
+upstream upstream_libro {
+    server 10.0.2.20:8083;
+    server 10.0.2.10:8083;
+}
+
 server {
     listen 80;
     server_name www.distribuidos.net servicios.distribuidos.net;
     
-    # Redirige todo el tráfico HTTP al equivalente HTTPS
     return 301 https://$host$request_uri;
 }
 
@@ -24,7 +38,7 @@ server {
         proxy_pass http://upstream_editorial;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-Proto https; # Avisa al backend que es seguro
+        proxy_set_header X-Forwarded-Proto https;
     }
 
     location ~ ^/autor {
