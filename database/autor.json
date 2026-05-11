@@ -1,0 +1,77 @@
+[
+    {
+        "id": 1,
+        "nombre": "Carlos Toledo",
+        "editorial_id": 1
+    },
+    {
+        "id": 2,
+        "nombre": "Martin Fowler",
+        "editorial_id": 2
+    },
+    {
+        "id": 3,
+        "nombre": "Ada Lovelace",
+        "editorial_id": 2
+    },
+    {
+        "id": 4,
+        "nombre": "Donald Knuth",
+        "editorial_id": 3
+    },
+    {
+        "id": 5,
+        "nombre": "Linus Torvalds",
+        "editorial_id": 4
+    },
+    {
+        "id": 6,
+        "nombre": "Grace Hopper",
+        "editorial_id": 5
+    },
+    {
+        "id": 7,
+        "nombre": "Leslie Lamport",
+        "editorial_id": 6
+    },
+    {
+        "id": 8,
+        "nombre": "Barbara Liskov",
+        "editorial_id": 7
+    },
+    {
+        "id": 9,
+        "nombre": "Edsger Dijkstra",
+        "editorial_id": 8
+    },
+    {
+        "id": 10,
+        "nombre": "Ken Thompson",
+        "editorial_id": 9
+    },
+    {
+        "id": 11,
+        "nombre": "Dennis Ritchie",
+        "editorial_id": 9
+    },
+    {
+        "id": 12,
+        "nombre": "Tim Berners-Lee",
+        "editorial_id": 10
+    },
+    {
+        "id": 13,
+        "nombre": "Andrew Tanenbaum",
+        "editorial_id": 6
+    },
+    {
+        "id": 14,
+        "nombre": "Bjarne Stroustrup",
+        "editorial_id": 3
+    },
+    {
+        "id": 15,
+        "nombre": "James Gosling",
+        "editorial_id": 5
+    }
+]

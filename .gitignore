@@ -1,12 +1,2 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-venv/
-.env
-
 # macOS
 .DS_Store
-
-# Datos de prueba
-*.json

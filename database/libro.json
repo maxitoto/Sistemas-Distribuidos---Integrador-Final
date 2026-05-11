@@ -1,0 +1,127 @@
+[
+    {
+        "id": 1,
+        "titulo": "Diseño de Sistemas Distribuidos",
+        "autor_id": 1
+    },
+    {
+        "id": 2,
+        "titulo": "Concurrencia en NFS",
+        "autor_id": 1
+    },
+    {
+        "id": 3,
+        "titulo": "Refactoring 2nd Edition",
+        "autor_id": 2
+    },
+    {
+        "id": 4,
+        "titulo": "Notas sobre la Máquina Analítica",
+        "autor_id": 3
+    },
+    {
+        "id": 5,
+        "titulo": "The Art of Computer Programming",
+        "autor_id": 4
+    },
+    {
+        "id": 6,
+        "titulo": "Kernel Development Essentials",
+        "autor_id": 5
+    },
+    {
+        "id": 7,
+        "titulo": "Compilers and Optimizations",
+        "autor_id": 6
+    },
+    {
+        "id": 8,
+        "titulo": "Distributed Algorithms",
+        "autor_id": 7
+    },
+    {
+        "id": 9,
+        "titulo": "Programming Methodology",
+        "autor_id": 8
+    },
+    {
+        "id": 10,
+        "titulo": "Structured Programming",
+        "autor_id": 9
+    },
+    {
+        "id": 11,
+        "titulo": "Unix Internals",
+        "autor_id": 10
+    },
+    {
+        "id": 12,
+        "titulo": "The C Programming Language",
+        "autor_id": 11
+    },
+    {
+        "id": 13,
+        "titulo": "The Semantic Web",
+        "autor_id": 12
+    },
+    {
+        "id": 14,
+        "titulo": "Modern Operating Systems",
+        "autor_id": 13
+    },
+    {
+        "id": 15,
+        "titulo": "Computer Networks",
+        "autor_id": 13
+    },
+    {
+        "id": 16,
+        "titulo": "The C++ Programming Language",
+        "autor_id": 14
+    },
+    {
+        "id": 17,
+        "titulo": "Java for Distributed Systems",
+        "autor_id": 15
+    },
+    {
+        "id": 18,
+        "titulo": "Concurrent Programming Patterns",
+        "autor_id": 7
+    },
+    {
+        "id": 19,
+        "titulo": "Advanced Refactoring",
+        "autor_id": 2
+    },
+    {
+        "id": 20,
+        "titulo": "Clean Architecture Concepts",
+        "autor_id": 8
+    },
+    {
+        "id": 21,
+        "titulo": "Parallel Computing Fundamentals",
+        "autor_id": 1
+    },
+    {
+        "id": 22,
+        "titulo": "Data Structures in Practice",
+        "autor_id": 4
+    },
+    {
+        "id": 23,
+        "titulo": "Operating Systems Design",
+        "autor_id": 13
+    },
+    {
+        "id": 24,
+        "titulo": "Algorithms and Complexity",
+        "autor_id": 9
+    },
+    {
+        "id": 25,
+        "titulo": "Cloud Native Applications",
+        "autor_id": 15
+    }
+]
