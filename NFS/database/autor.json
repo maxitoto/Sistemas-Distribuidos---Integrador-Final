@@ -1,0 +1,19 @@
+{
+    "autor": [
+        {
+            "id": 1,
+            "nombre": "Autor 1",
+            "editorial_id": 1
+        },
+        {
+            "id": 2,
+            "nombre": "Autor 2",
+            "editorial_id": 1
+        },
+        {
+            "id": 3,
+            "nombre": "Autor 3",
+            "editorial_id": 2
+        }
+    ]
+}
