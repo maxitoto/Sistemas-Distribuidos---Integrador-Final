@@ -8,8 +8,8 @@ x-common-config: &common-env
 
 services:
   editorial-api:
-    build: .
-    command: python editorial/api/editorial.py
+    build: ./editorial
+    command: python api/editorial.py
     container_name: serviceEditorial
     environment:
       <<: *common-env  
@@ -20,8 +20,8 @@ services:
     restart: unless-stopped
 
   autor-api:
-    build: .
-    command: python autor/api/autor.py
+    build: ./autor
+    command: python api/autor.py
     container_name: serviceAutor
     environment:
       <<: *common-env 
@@ -32,8 +32,8 @@ services:
     restart: unless-stopped
     
   libro-api:
-    build: .
-    command: python libro/api/libro.py
+    build: ./libro
+    command: python api/libro.py
     container_name: serviceLibro
     environment:
       <<: *common-env
