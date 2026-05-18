@@ -8,36 +8,36 @@ x-common-config: &common-env
 
 services:
   editorial-api:
-    build: ./editorial
-    command: python api/editorial.py
+    build: .
+    command: python editorial/api/editorial.py
     container_name: serviceEditorial
     environment:
       <<: *common-env  
-      DATA_PATH_EDITORIAL: "/app/database/editorial.json"
+      DATA_PATH_EDITORIAL: "/app/editorial/database/editorial.json"
       PORT_EDITORIAL: 8081
     ports:
       - "8081:8081"
     restart: unless-stopped
 
   autor-api:
-    build: ./autor
-    command: python api/autor.py
+    build: .
+    command: python autor/api/autor.py
     container_name: serviceAutor
     environment:
       <<: *common-env 
-      DATA_PATH_AUTOR: "/app/database/autor.json" 
+      DATA_PATH_AUTOR: "/app/autor/database/autor.json" 
       PORT_AUTOR: 8082
     ports:
       - "8082:8082"
     restart: unless-stopped
     
   libro-api:
-    build: ./libro
-    command: python api/libro.py
+    build: .
+    command: python libro/api/libro.py
     container_name: serviceLibro
     environment:
       <<: *common-env
-      DATA_PATH_LIBRO: "/app/database/libro.json"
+      DATA_PATH_LIBRO: "/app/libro/database/libro.json"
       PORT_LIBRO: 8083
     ports:
       - "8083:8083"
