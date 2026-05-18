@@ -20,11 +20,11 @@
             
             <div class="card">
                 <h2>Arquitectura</h2>
-                <p>Exterior (HTTPS) <strong>dist0</strong> (Nginx HTTPS/HTTP) <-> <strong>dist1/dist2</strong> (Nginx HTTP) <-> (Flask HTTP)<strong>dist1/dist2</strong> <-> <strong>sdist3</strong> (NFS).</p>
+                <p>Exterior (HTTPS) <strong>dist0</strong> (Nginx HTTPS/HTTP) &lt;-&gt; <strong>dist1/dist2</strong> (Nginx HTTP) &lt;-&gt; (Flask HTTP)<strong>dist1/dist2</strong> &lt;-&gt; <strong>sdist3</strong> (NFS).</p>
                 <ul>
                     <li><strong>Resiliencia:</strong> <strong>dist1/dist2</strong></li>
                     <li><strong>SSL/TLS:</strong> Activo (Puerto 443)</li>
-                    <li><strong>Balanceo:</strong> Round Robin 1:2 (dist1/dist2)</li>
+                    <li><strong>Balanceo:</strong> Round Robin 3:1 (dist1/dist2)</li>
                     <li><strong>Proxy Inverso:</strong> Activo (Puerto 80)</li>
                     <li><strong>Servidor Web:</strong> <strong>dist1/dist2</strong></li>
                     <li><strong>Microservicios:</strong> 3 (Editoriales, Autores, Libros)</li>
@@ -35,54 +35,19 @@
             <div class="card">
                 <h2>Repositorio</h2>
                 <h3>Estructura</h3>
-                <p>Rama NFS contiene la web estatica y los datos</p>
-                <p>Rama services contiene los serivicos dockerizados</p>
-                <p>Rama gateway contiene la configuración de nginx y un generador de certificados</p>
-                <p>Rama main contiene un esqueleto como muestra</p>
-                <p><a href="https://github.com/maxitoto/Sistemas-Distribuidos---Integrador-Final">Repositorio del proyecto</a></p>
-            </div>
-
-            <div class="card full-width">
-                <h2>Consola de Pruebas de Microservicios</h2>
-                
-                <div class="test-panel">
-                    <h3>1. Microservicio Editoriales (Internamente 8081)</h3>
-                    <div class="input-group">
-                        <input type="number" id="ed-id" placeholder="ID Editorial" value="1">
-                        <button class="btn" onclick="test('GET', '/editorial/' + document.getElementById('ed-id').value)">GET Editorial</button>
-                        <button class="btn" onclick="test('GET', '/editorial/' + document.getElementById('ed-id').value + '/dashboard')">GET Dashboard</button>
-                        <button class="btn btn-post" onclick="test('POST', '/editorial', {nombre: 'Nueva Editorial', pais: 'Argentina'})">POST Editorial</button>
-                    </div>
-
-                    <h3>2. Microservicio Autores (Internamente 8082)</h3>
-                    <div class="input-group">
-                        <input type="number" id="au-id" placeholder="ID Autor" value="1">
-                        <button class="btn" onclick="test('GET', '/autor/' + document.getElementById('au-id').value)">GET Autor</button>
-                        <button class="btn" onclick="test('GET', '/autores?editorial=' + document.getElementById('ed-id').value)">GET Autores de Ed.</button>
-                        <button class="btn btn-post" onclick="test('POST', '/autor', {nombre: 'Borges', editorial_id: 1})">POST Autor</button>
-                    </div>
-
-                    <h3>3. Microservicio Libros (Internamente 8083)</h3>
-                    <div class="input-group">
-                        <input type="number" id="li-id" placeholder="ID Libro" value="1">
-                        <button class="btn" onclick="test('GET', '/libro/' + document.getElementById('li-id').value)">GET Libro</button>
-                        <button class="btn" onclick="test('GET', '/libros?autor=' + document.getElementById('au-id').value)">GET Libros de Autor</button>
-                        <button class="btn btn-post" onclick="test('POST', '/libro', {titulo: 'Ficciones', anio: 1944, autor_id: 1})">POST Libro</button>
-                    </div>
-                </div>
-
-                <h4>Salida del Servidor (JSON):</h4>
-                <div id="response-console">Esperando petición...</div>
+                <p>Rama <strong>NFS</strong>: contiene la web estática y los datos.</p>
+                <p>Rama <strong>services</strong>: contiene los servicios dockerizados.</p>
+                <p>Rama <strong>gateway</strong>: contiene la configuración de Nginx y un generador de certificados.</p>
+                <p>Rama <strong>main</strong>: contiene un esqueleto como muestra.</p>
+                <p><a href="https://github.com/maxitoto/Sistemas-Distribuidos---Integrador-Final" target="_blank">Repositorio del proyecto</a></p>
             </div>
 
         </div>
 
         <footer>
             <p>&copy; 2026 Maxitoto - Sistemas Distribuidos UNTDF</p>
-            <a href="https://github.com/maxitoto">GitHub de Maxitoto</a>
+            <a href="https://github.com/maxitoto" target="_blank">GitHub de Maxitoto</a>
         </footer>
-
-        <script src="js/scripts.js"></script>
 
     </body>
 </html>
