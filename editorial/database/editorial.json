@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "nombre": "Distribuidos Sur",
+        "pais": "Argentina"
+    },
+    {
+        "id": 2,
+        "nombre": "Tech Books Publishing",
+        "pais": "Estados Unidos"
+    },
+    {
+        "id": 3,
+        "nombre": "Alpha Editorial",
+        "pais": "España"
+    },
+    {
+        "id": 4,
+        "nombre": "Nova Ciencia",
+        "pais": "México"
+    },
+    {
+        "id": 5,
+        "nombre": "Digital Future Press",
+        "pais": "Canadá"
+    },
+    {
+        "id": 6,
+        "nombre": "Open Knowledge",
+        "pais": "Reino Unido"
+    },
+    {
+        "id": 7,
+        "nombre": "Data Minds",
+        "pais": "Alemania"
+    },
+    {
+        "id": 8,
+        "nombre": "Code Masters",
+        "pais": "Chile"
+    },
+    {
+        "id": 9,
+        "nombre": "Parallel Systems House",
+        "pais": "Brasil"
+    },
+    {
+        "id": 10,
+        "nombre": "Quantum Reads",
+        "pais": "Japón"
+    }
+]
