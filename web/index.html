@@ -20,13 +20,13 @@
             
             <div class="card">
                 <h2>Arquitectura</h2>
-                <p>Servido por <strong>dist0</strong> (Nginx HTTPS) <-> (Flask HTTP)<strong>dist1/dist2</strong>  <-> <strong>sdist3</strong> (NFS).</p>
+                <p>Exterior (HTTPS) <strong>dist0</strong> (Nginx HTTPS/HTTP) <-> <strong>dist1/dist2</strong> (Nginx HTTP) <-> (Flask HTTP)<strong>dist1/dist2</strong> <-> <strong>sdist3</strong> (NFS).</p>
                 <ul>
                     <li><strong>Resiliencia:</strong> <strong>dist1/dist2</strong></li>
                     <li><strong>SSL/TLS:</strong> Activo (Puerto 443)</li>
                     <li><strong>Balanceo:</strong> Round Robin 1:2 (dist1/dist2)</li>
                     <li><strong>Proxy Inverso:</strong> Activo (Puerto 80)</li>
-                    <li><strong>Servidor Web:</strong> <strong>dist0</strong> <- <strong>dist3</strong> (NFS scope web)</li>
+                    <li><strong>Servidor Web:</strong> <strong>dist1/dist2</strong></li>
                     <li><strong>Microservicios:</strong> 3 (Editoriales, Autores, Libros)</li>
                     <li><strong>Almacenamiento:</strong> 1 (NFS scope database)</li>
                 </ul>
